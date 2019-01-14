@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Order <%= @order.token %></h2>
+  <h2>Order #<%= @order.token %></h2>
 
   <p>Order's items are listed in table below</p>
   <table class="table table-bordered">
@@ -25,4 +25,7 @@
       </tr>
     </tbody>
   </table>
+
+  <%= link_to "View PDF version", order_path(@order, download: false, format: :pdf) %> or <%= link_to "Download PDF version", order_path(@order, download: true, format: :pdf) %>
 </div>
+
