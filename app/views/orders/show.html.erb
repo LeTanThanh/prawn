@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Order <%= @order.token %></h2>
+
+  <p>Order's items are listed in table below</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Item</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @order.items.each.with_index(1) do |item, index| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= item.name %></td>
+          <td><%= number_to_currency item.price %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="2">Total price</td>
+        <td><%= number_to_currency @order.decorate.total_price %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
